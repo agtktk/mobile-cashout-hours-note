@@ -1,0 +1,8 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import {publishedArticles} from '../../lib/content';
+import {site} from '../../data/site';
+const articles=await publishedArticles();
+---
+<Base title={"운영시간과 처리 상태"} description={site.keyword+' '+"24시라는 광고 문구에서 접수 가능·답변 가능·처리 완료 시점을 나눠 확인합니다."} crumbs={[{name:"운영시간과 처리 상태",url:"/topics/basics/"}]}><div class="page-intro"><p class="eyebrow">READING INDEX</p><h1>운영시간과 처리 상태</h1><p>{site.intro}</p></div><section><h2>이 주제에서 확인할 가이드</h2><div class="articles-grid">{articles.map(article=><ArticleCard article={article}/>)}</div><p><a href="/guide/">확인 질문을 정리하는 순서</a> · <a href="/topics/basics/">주제의 범위</a> · <a href="/about/">편집 원칙</a></p></section></Base>
